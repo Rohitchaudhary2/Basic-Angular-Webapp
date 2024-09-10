@@ -1,6 +1,4 @@
-import { Component, computed, inject, input, output } from '@angular/core';
-import { CounterService } from './counter.service';
-
+import { Component, input, output } from '@angular/core';
 @Component({
   selector: 'app-counter',
   standalone: true,
@@ -9,28 +7,16 @@ import { CounterService } from './counter.service';
   styleUrl: './counter.component.css'
 })
 export class CounterComponent {
-  // counter = input.required<number>()
-  // incrementCounter = output()
-  // decrementCounter = output()
-
-  // increment(){
-  //   this.incrementCounter.emit()
-  // }
-
-  // decrement(){
-  //   this.decrementCounter.emit()
-  // }
-
-  private counterService = inject(CounterService)
-
-  // counter = computed(() => this.counterService.count())
-  counter = this.counterService.count
+  counter = input.required<number>()
+  incrementCounter = output()
+  decrementCounter = output()
 
   increment(){
-    this.counterService.increment()
+    this.incrementCounter.emit()
   }
 
-  decrement() {
-    this.counterService.decrement()
+  decrement(){
+    this.decrementCounter.emit()
   }
+
 }

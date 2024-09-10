@@ -10,13 +10,13 @@ import { CounterComponent } from './counter/counter.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  // counter = signal(0)
+  counter = signal(0)
 
-  // increment(){
-  //   this.counter.set(this.counter() + 1)
-  // }
+  increment(){
+    this.counter.set(this.counter() + 1)
+  }
 
-  // decrement(){
-  //   this.counter.set(this.counter() - 1)
-  // }
+  decrement(){
+    this.counter.set(this.counter() - 1)
+  }
 }
